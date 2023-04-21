@@ -267,6 +267,7 @@ GET_U16_FROM_ADDR(const uint8 *p)
 #define E_MACHINE_RISCV 243         /* RISC-V 32/64 */
 #define E_MACHINE_WIN_I386 0x14c    /* Windows i386 architecture */
 #define E_MACHINE_WIN_X86_64 0x8664 /* Windows x86-64 architecture */
+#define E_MACHINE_WIN_ARM64 0xaa64  /* Windows ARM64 architecture */
 
 /* Legal values for e_version */
 #define E_VERSION_CURRENT 1 /* Current version */
@@ -412,6 +413,7 @@ get_aot_file_target(AOTTargetInfo *target_info, char *target_buf,
             break;
         case E_MACHINE_ARM:
         case E_MACHINE_AARCH64:
+        case E_MACHINE_WIN_ARM64:
             machine_type = target_info->arch;
             break;
         case E_MACHINE_MIPS:
