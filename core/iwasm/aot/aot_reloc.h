@@ -129,6 +129,13 @@ typedef struct {
 #define REG_LLVM_PGO_SYM()
 #endif
 
+#ifdef _MSC_VER
+#pragma function (ceil)
+#pragma function (ceilf)
+#pragma function (floor)
+#pragma function (floorf)
+#endif
+
 #define REG_COMMON_SYMBOLS                \
     REG_SYM(aot_set_exception_with_id),   \
     REG_SYM(aot_invoke_native),           \

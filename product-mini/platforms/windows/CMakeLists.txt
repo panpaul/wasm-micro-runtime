@@ -1,13 +1,19 @@
 # Copyright (C) 2019 Intel Corporation.  All rights reserved.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-cmake_minimum_required (VERSION 2.9)
+cmake_minimum_required (VERSION 3.26)
 
 project (iwasm C ASM CXX)
-enable_language(ASM_MASM)
 # set (CMAKE_VERBOSE_MAKEFILE 1)
 
 set (WAMR_BUILD_PLATFORM "windows")
+set (WAMR_BUILD_TARGET "AARCH64")
+
+if (WAMR_BUILD_TARGET MATCHES "AARCH64.*")
+    enable_language(ASM_MARMASM)
+else ()
+    enable_language(ASM_MASM)
+endif ()
 
 # Reset default linker flags
 set (CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
